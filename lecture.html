@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,12 +9,14 @@
     <link rel="icon" href="">
 
     <title>Semantic Web Based Learning Platform</title>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700|Material+Icons">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
+
     <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -46,24 +49,19 @@
         </nav>
     </header>
 
-    <section class="jumbotron-lec">
-        <div class="container">
-            <h2>Basics of Android Development</h2>
-            <p class="text-muted">
-                The course description goes here. Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam.
-                Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim.
-            </p>
-        </div>
-    </section>
-
     <main role="main">
-        <div class="album py-5 bg-light">
-            <section class="container col-sm-8">
-                <div class="embed-responsive embed-responsive-16by9 mt-1 mb-1">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+        <div class="album py-4 mb-5">
+            <section class="container col-sm-6">
+                <div class="embed-responsive embed-responsive-16by9 mt-3 mb-4">
+                    <iframe width="854" height="480" src="https://www.youtube.com/embed/-igAiudpBng" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
                 </div>
+                <h5 style="font-weight:bold">Basics of Android Development</h5>
+                <p class="text-muted">
+                    The course description goes here. Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim.
+                </p>
+                
                 <nav>
-                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist" style="">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Add a Meta Tag</a>
                         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Tagged Sections</a>
                         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Related Resources</a>
@@ -72,13 +70,50 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                        <form class="form-inline">
+                            <div class="form-row align-items-center">
+                                <div class="col-sm-3 my-1">
+                                    <label class="sr-only" for="inlineFormInputGroupUsername2">00:00</label>
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">From</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="00:00">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 my-1">
+                                    <label class="sr-only" for="inlineFormInputGroupUsername2">00:00</label>
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">To</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="00:00">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 my-1">
+                                    <label class="sr-only" for="inlineFormInputGroupUsername2">Topic</label>
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">#</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Topic">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 my-1">
+                                    <button type="submit" class="btn btn-primary mb-2">Add Tag</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                        Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt
+                        irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit
+                        do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                        Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt
+                        irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit
+                        do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
                     </div>
                 </div>
             </section>
@@ -102,4 +137,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/holder.min.js"></script>
 </body>
+
 </html>
