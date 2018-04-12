@@ -2,139 +2,135 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="">
 
-    <title>Semantic Web Based Learning Platform</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700|Material+Icons">
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Semantic Web Based Learning Platform</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700|Material+Icons">
+  <!-- Bootstrap core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- Custom styles for this template -->
+  <!-- Custom styles for this template -->
 
-    <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">SWLP</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-4">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">All Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-                <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control" type="text" placeholder="Search..." style="width:500px" aria-label="Search">
-                </form>
-            </div>
+  <header>
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">SWLP</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-4">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">All Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control" type="text" placeholder="Search..." style="width:500px" aria-label="Search">
+        </form>
+      </div>
+    </nav>
+  </header>
+  <main id="back" role="main">
+    <div class="album py-4 mb-5">
+      <section class="container col-sm-6">
+        <div id="lec_frame">
+        </div>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist" style="">
+            <a class="nav-item nav-link active" id="nav-related-resources-tab" data-toggle="tab"
+            href="#nav-related-resources" role="tab" aria-controls="nav-related-resource" aria-selected="true">
+            Related Resources</a>
+            <a class="nav-item nav-link" id="nav-tagged-sections-tab" data-toggle="tab"
+            href="#nav-tagged-sections" role="tab" aria-controls="nav-tagged-sections" aria-selected="false">
+            Tagged Sections</a>
+            <a class="nav-item nav-link" id="nav-discussion-tab" data-toggle="tab"
+            href="#nav-discussion" role="tab" aria-controls="nav-discussion" aria-selected="false">
+            Discussion</a>
+          </div>
         </nav>
-    </header>
-
-    <main role="main">
-        <section class="jumbotron bg-light">
-            <div class="container">
-                <h1 class="text-center">Semantic Web Based Learning Platform</h1>
-                <h4 class="lead text-muted text-center" style="line-height:1.4;font-size:1.35em">Students and teachers add metatags to sections of lecture videos.
-                <br>SWLP gathers and displays online resources that are sematically related to the metatags
-                for a more comprehensive learning experience.</h4>
-                <br>
-                <p class="text-center">
-                    <a href="#" class="btn btn-success mt-2">START LEARNING</a>
-                    <a href="#" class="btn btn-secondary mt-2">KNOW MORE</a>
-                </p>
-            </div>
-        </section>
-        <div class="album py-5">
-            <div class="container">
-                <h4 class="mb-4">Featured Courses</h4>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img class="card-img-top" data-src="" src="http://placeimg.com/400/220/tech/1" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="lecture.html">Learn to Program with Java</a></h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-primary">Start Learning</button>
-                                        <button type="button" class="btn btn-sm btn-outline-primary">Bookmark</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img class="card-img-top" data-src="" src="http://placeimg.com/400/220/tech/2" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="lecture.html">Learn to Program with Java</a></h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-primary">Start Learning</button>
-                                        <button type="button" class="btn btn-sm btn-outline-primary">Bookmark</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img class="card-img-top" data-src="" src="http://placeimg.com/400/220/tech/3" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="lecture.html">Learn to Program with Java</a></h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-primary">Start Learning</button>
-                                        <button type="button" class="btn btn-sm btn-outline-primary">Bookmark</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade" id="nav-tagged-sections" role="tabpanel"
+          aria-labelledby="nav-tagged-sections-tab-tab">
+          <ul id="vtag" class="list-group list-group-flush">
+            <li class="list-group-item"><a href="">00:00 - 00:30</a> #Java, #JEE, #JSP</li>
+          </ul>
         </div>
-    </main>
-
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Back to top</a>
-            </p>
-            <p>See all <a href="#">credits</a>.</p>
+        <div class="tab-pane fade show active" id="nav-related-resources" role="tabpanel"
+        aria-labelledby="nav-related-resources-tab">
+        <div id="related_rsrc" class="list-group list-group-flush">
         </div>
-    </footer>
+      </div>
+      <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
+        <h4 class="text-center">Please check back later.</h4>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+<main id="front" role="main">
+  <section class="jumbotron bg-light">
+    <div class="container">
+      <h1 class="text-center">Semantic Web Based Learning Platform</h1>
+      <h4 class="lead text-muted text-center" style="line-height:1.4;font-size:1.35em">Students and teachers add metatags to sections of lecture videos.
+        <br>SWLP gathers and displays online resources that are sematically related to the metatags
+        for a more comprehensive learning experience.</h4>
+        <br>
+        <p class="text-center">
+          <a href="#" class="btn btn-success mt-2">START LEARNING</a>
+          <a href="#" class="btn btn-secondary mt-2">KNOW MORE</a>
+        </p>
+      </div>
+    </section>
+    <div class="album py-5">
+      <div class="container">
+        <h4 class="mb-4">Featured Courses</h4>
+        <div class="row" id="row">
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>See all <a href="#">credits</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <!-- ajax-json -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
