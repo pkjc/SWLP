@@ -20,18 +20,29 @@ function source(e){
     lecture_data += '<p id="desc" class="text-muted">'+data.lectureDesc+'</p>';
     console.log(lecture_data);
     $('#lec_frame').append(lecture_data);
-    console.log("THIS " + data.taggedSections.Tags[0]);
+    console.log("THIS " + data.RelatedResources.media[0]);
     // Start of Tag call
-      vid_tag += '<li class="list-group-item"><a href=""></a>  </li>';
+    $.each(data.taggedSections.Tags, function(index, value){
+      console.log("VAL " + value.tagName);
+      $.each(data.taggedSections.Tags[index].Appearances, function(index1, value1){
+        console.log("VAL " + value1.startTime);
+            vid_tag += '<li class="list-group-item"><a href="">'+value1.startTime+'-'+value1.endTime+'</a> #'+value.tagName+'</li>' ;
+    });
+  });
+
+    console.log(vid_tag);
     // Start of Related Resources
+    $.each(data.RelatedResources.media, function(index, value){
+      console.log("VAL " + value.tagName);
     related_resources +=  '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">';
     related_resources +=  '<div class="d-flex w-100 justify-content-between">';
-    related_resources +=  '<h5 class="mb-1">'+data.RelatedResources.media.title+'</h5>';
-    related_resources +=  '<small>'+data.RelatedResources.media.mediaType+'</small>';
+    related_resources +=  '<h5 class="mb-1">'+value.title+'</h5>';
+    related_resources +=  '<small>'+value.mediaType+'</small>';
     related_resources +=  '</div>';
-    related_resources +=  '<p class="mb-1">'+data.RelatedResources.media.description+'</p>';
-    related_resources +=  '<small>'+data.RelatedResources.media.resourceURL+'</small>';
+    related_resources +=  '<p class="mb-1">'+value.description+'</p>';
+    related_resources +=  '<small>'+value.image+'</small>';
     related_resources +=  '</a>';
+  });
     console.log(related_resources);
     $('#related_rsrc').append(related_resources);
     $('#vtag').append(vid_tag);
