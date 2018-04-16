@@ -1,35 +1,40 @@
 function source(e){
-  console.log(e);
+  console.log("inside source " + e);
   $("#back").show();
   $("#front").hide();
   var myVal = event.target.value;
-  console.log(myVal);
+  console.log('myVal' + myVal);
   var lecture_data = '';
   var vid_tag = '';
   var related_resources = '';
+  console.log('myVal 2 ' + myVal);
   url = "https://swlp-lecture-service.herokuapp.com/api/lectures/";
   var NewUrl = url + myVal;
+  console.log('NewUrl ' + NewUrl);
   $.getJSON(NewUrl,function(data){
+    console.log("inside getjson");
     lecture_data += '<div id="vid" class="embed-responsive embed-responsive-16by9 mt-3 mb-4">';
-    lecture_data += '<iframe width="560" height="315" src="'+data.lectureUrl+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>></iframe>';
+    lecture_data += '<iframe width="560" height="315" src="'+data.taggedSections.VideoURL+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>></iframe>';
     lecture_data += '</div>';
-    lecture_data += '<h5 id="name" style="font-weight:bold">'+data.lectureName+'</h5>';
+    lecture_data += '<h5 id="name" style="font-weight:bold">'+data.taggedSections.VideoName+'</h5>';
     lecture_data += '<p id="desc" class="text-muted">'+data.lectureDesc+'</p>';
     console.log(lecture_data);
     $('#lec_frame').append(lecture_data);
-    // Start of Tag call                '+data.startTime+' - '+data.endTime+'(replace with 00:00)
-    vid_tag += '<li class="list-group-item"><a href="">00:00</a> '+data.taggedSections+' </li>';
-    $('#vtag').append(vid_tag);
+    console.log("THIS " + data.taggedSections.Tags[0]);
+    // Start of Tag call
+      vid_tag += '<li class="list-group-item"><a href=""></a>  </li>';
     // Start of Related Resources
-    related_resources +=  '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">'
-    related_resources +=  '<div class="d-flex w-100 justify-content-between">'
-    related_resources +=  '<h5 class="mb-1">List group item heading</h5>'
-    related_resources +=  '<small>'+data.relatedResources+'</small>'
-    related_resources +=  '</div>'
-    related_resources +=  '<p class="mb-1">Donec id elit non mi porta gravida at eget metus.Maecenas sed diam eget risus varius blandit.</p>'
-    related_resources +=  '<small>http://example.com</small>'
-    related_resources +=  '</a>'
+    related_resources +=  '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">';
+    related_resources +=  '<div class="d-flex w-100 justify-content-between">';
+    related_resources +=  '<h5 class="mb-1">'+data.RelatedResources.media.title+'</h5>';
+    related_resources +=  '<small>'+data.RelatedResources.media.mediaType+'</small>';
+    related_resources +=  '</div>';
+    related_resources +=  '<p class="mb-1">'+data.RelatedResources.media.description+'</p>';
+    related_resources +=  '<small>'+data.RelatedResources.media.resourceURL+'</small>';
+    related_resources +=  '</a>';
+    console.log(related_resources);
     $('#related_rsrc').append(related_resources);
+    $('#vtag').append(vid_tag);
   });
 
 }
@@ -54,7 +59,6 @@ function getUrl(url){
       lec_data += '<button type="button" id="'+value.id+'" onclick="source(this)" value="'+value.id+'"  class="lbtn btn btn-sm btn-outline-primary">Start Learning</button>';
       lec_data += '<button type="button" class="btn btn-sm btn-outline-primary">Bookmark</button>';
       lec_data += '</div>';
-      lec_data += '<small class="text-muted">9 mins</small>';
       lec_data += '</div>';
       lec_data += '</div>';
       lec_data += '</div>';
