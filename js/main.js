@@ -8,6 +8,9 @@ function source(e){
   $("#busy2").show();
   $("#busy3").show();
   $("#busy4").show();
+  $('#lec_frame').empty();
+  $('#related_rsrc').empty();
+  $('#vtag').empty();
   var myVal = event.target.value;
   console.log('myVal' + myVal);
   //defining the variables
@@ -31,6 +34,7 @@ function source(e){
     $("#busy2").hide();
     console.log(lecture_data);
     console.log("VideoID" +data.taggedSections.videoURL);
+    $('#lec_frame').empty();
     $('#lec_frame').append(lecture_data);
     // appending the acquired data to lecture material area in the thin client
     // Start of Tag call
@@ -59,7 +63,9 @@ function source(e){
     });
     console.log(related_resources);
     // appending the acquired data to lecture material area in the thin client
+    $('#related_rsrc').empty();
     $('#related_rsrc').append(related_resources);
+    $('#vtag').empty();
     $('#vtag').append(vid_tag);
   });
 
@@ -100,6 +106,7 @@ function getUrl(url){
     console.log(lec_data);
 
     // appending the acquired data to all course area in the thin client
+    $('#row').empty();
     $('#row').append(lec_data);
   });
 }
