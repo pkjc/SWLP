@@ -21,8 +21,8 @@ function source(e){
   console.log('NewUrl ' + NewUrl);
   //Making a AJAX getJSON function call with the new URL
   $.getJSON(NewUrl,function(data){
+    console.log('New Data'+data);
     console.log("inside getjson");
-    console.log(data);
     lecture_data += '<div id="vid" class="embed-responsive embed-responsive-16by9 mt-3 mb-4">';
     lecture_data += '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+data.taggedSections.videoURL+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     lecture_data += '</div>';
@@ -47,14 +47,14 @@ function source(e){
     // Start of Related Resources
     $.each(data.RelatedResources.media, function(index, value){
       console.log("VAL " + value.tagName);
-      related_resources +=  '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">';
+      related_resources +=  '<div class="list-group-item list-group-item-action flex-column align-items-start">';
       related_resources +=  '<div class="d-flex w-100 justify-content-between">';
       related_resources +=  '<h5 class="mb-1">'+value.title+'</h5>';
       related_resources +=  '<small>'+value.mediaType+'</small>';
       related_resources +=  '</div>';
       related_resources +=  '<p class="mb-1">'+value.description+'</p>';
-      related_resources +=  '<small>'+value.image+'</small>';
-      related_resources +=  '</a>';
+      related_resources +=  '<a href="'+value.image+'">'+value.image+'</a>';
+      related_resources +=  '</div>';
       $("#busy4").hide();
     });
     console.log(related_resources);
