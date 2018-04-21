@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="">
+
+  <title>Semantic Web Based Learning Platform</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700|Material+Icons">
+  <!-- Bootstrap core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">SWLP</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-4">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">All Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control" type="text" placeholder="Search..." style="width:500px" aria-label="Search">
+        </form>
+      </div>
+    </nav>
+  </header>
+  <main id="back" role="main">
+    <div class="album py-4 mb-5">
+      <section class="container col-sm-6">
+        <div id="lec_frame">
+          <iframe id="existing-iframe-example"
+          width="560" height="315"
+          src="https://www.youtube.com/embed/QOne3o-7_DQ?enablejsapi=1"
+          frameborder="0"
+          style="border: solid 4px #37474F"
+          allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <p id="current-time"></p>
+          <script type="text/javascript">
+          console.log("IM here 1");
+          var tag = document.createElement('script');
+          tag.id = 'iframe-demo';
+          tag.src = 'https://www.youtube.com/iframe_api';
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+          console.log("IM here 2");
+          var player;
+          function onYouTubeIframeAPIReady() {
+            player = new YT.Player('existing-iframe-example', {
+              events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+              }
+            });
+          }
+          function onPlayerReady(event) {
+            document.getElementById('existing-iframe-example').style.borderColor = '#FF6D00';
+            var time_update_interval ='';
+            updateTimerDisplay();
+            // Clear any old interval.
+            clearInterval(time_update_interval);
+
+            // Start interval to update elapsed time display and
+            // the elapsed part of the progress bar every second.
+            time_update_interval = setInterval(function () {
+              updateTimerDisplay();
+            }, 1000)
+          }
+          function changeBorderColor(playerStatus) {
+            var color;
+            if (playerStatus == -1) {
+              color = "#37474F"; // unstarted = gray
+            } else if (playerStatus == 0) {
+              color = "#FFFF00"; // ended = yellow
+            } else if (playerStatus == 1) {
+              color = "#33691E"; // playing = green
+            } else if (playerStatus == 2) {
+              color = "#DD2C00"; // paused = red
+            } else if (playerStatus == 3) {
+              color = "#AA00FF"; // buffering = purple
+            } else if (playerStatus == 5) {
+              color = "#FF6DOO"; // video cued = orange
+            }
+            if (color) {
+              document.getElementById('existing-iframe-example').style.borderColor = color;
+            }
+          }
+          function onPlayerStateChange(event) {
+            var LatestTime ='';
+            changeBorderColor(event.data);
+            updatedvideotime(LatestTime);
+            console.log(YT.PlayerState);
+          }
+          function updateTimerDisplay(){
+            // Update current time text display.
+            $('#current-time').text(formatTime( player.getCurrentTime() ));
+            console.log(formatTime( player.getCurrentTime() ));
+            function run(test){
+              var searchField = formatTime( player.getCurrentTime() );
+              console.log("time"+searchField);
+              if(test == searchField){
+              console.log("pickme"+test);
+              }
+
+            }
+          }
+
+          function sendNewUrl(NewUrl){
+            var  LatestTime=NewUrl;
+          }
+          function updatedvideotime(LatestTime){
+            console.log("Inside HTML" + LatestTime);
+            var vid_tag = '';
+            $.getJSON(LatestTime,function(data){
+              $.each(data.taggedSections.Tags, function(index, value){
+                console.log("VAL " + value.tagName);
+                $.each(data.taggedSections.Tags[index].Appearances, function(index1, value1){
+                  console.log("VAL " + value1.startTime);
+                  var test=value1.startTime;
+                  run(test);
+
+                  vid_tag += '<li class="list-group-item"><a href="">'+value1.startTime+'-'+value1.endTime+'</a> #'+value.tagName+'</li>' ;
+                  $('#vtag').append(vid_tag);
+
+                                  });
+              });
+
+              console.log(vid_tag);
+              // Start of Related Resources
+              // $.each(data.RelatedResources.media, function(index, value){
+              //   console.log("VAL " + value.tagName);
+              //   related_resources +=  '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">';
+              //   related_resources +=  '<div class="d-flex w-100 justify-content-between">';
+              //   related_resources +=  '<h5 class="mb-1">'+value.title+'</h5>';
+              //   related_resources +=  '<small>'+value.mediaType+'</small>';
+              //   related_resources +=  '</div>';
+              //   related_resources +=  '<p class="mb-1">'+value.description+'</p>';
+              //   related_resources +=  '<small>'+value.image+'</small>';
+              //   related_resources +=  '</a>';
+              // });
+              // console.log(related_resources);
+              // $('#related_rsrc').append(related_resources);
+            });
+          }
+          function formatTime(time){
+            time = Math.round(time);
+
+            var minutes = Math.floor(time / 60),
+            seconds = time/60*60;
+
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            return seconds;
+          }
+          </script>
+        </div>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist" style="">
+            <a class="nav-item nav-link active" id="nav-related-resources-tab" data-toggle="tab"
+            href="#nav-related-resources" role="tab" aria-controls="nav-related-resource" aria-selected="true">
+            Related Resources</a>
+            <a class="nav-item nav-link" id="nav-tagged-sections-tab" data-toggle="tab"
+            href="#nav-tagged-sections" role="tab" aria-controls="nav-tagged-sections" aria-selected="false">
+            Tagged Sections</a>
+            <a class="nav-item nav-link" id="nav-discussion-tab" data-toggle="tab"
+            href="#nav-discussion" role="tab" aria-controls="nav-discussion" aria-selected="false">
+            Discussion</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade" id="nav-tagged-sections" role="tabpanel"
+          aria-labelledby="nav-tagged-sections-tab-tab">
+          <ul id="vtag" class="list-group list-group-flush">
+          </ul>
+        </div>
+        <div class="tab-pane fade show active" id="nav-related-resources" role="tabpanel"
+        aria-labelledby="nav-related-resources-tab">
+        <div id="related_rsrc" class="list-group list-group-flush">
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
+        <h4 class="text-center">Please check back later.</h4>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<main id="front" role="main">
+  <section class="jumbotron bg-light">
+    <div class="container">
+      <h1 class="text-center">Semantic Web Based Learning Platform</h1>
+      <h4 class="lead text-muted text-center" style="line-height:1.4;font-size:1.35em">Students and teachers add metatags to sections of lecture videos.
+        <br>SWLP gathers and displays online resources that are sematically related to the metatags
+        for a more comprehensive learning experience.</h4>
+        <br>
+        <p class="text-center">
+          <a href="#" class="btn btn-success mt-2">START LEARNING</a>
+          <a href="#" class="btn btn-secondary mt-2">KNOW MORE</a>
+        </p>
+      </div>
+    </section>
+    <div class="album py-5">
+      <div class="container">
+        <h4 class="mb-4">Featured Courses</h4>
+        <div class="row" id="row">
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>See all <a href="#">credits</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <!-- ajax-json -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

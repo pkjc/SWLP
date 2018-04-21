@@ -2,8 +2,6 @@ function source(e){
   console.log("inside source " + e);
   $("#back").show();
   $("#front").hide();
-  $("#dev").hide();
-  $("#contact").hide();
   var myVal = event.target.value;
   console.log('myVal' + myVal);
   var lecture_data = '';
@@ -59,11 +57,11 @@ function getUrl(url){
   var lec_data = '';
   url = url;
   $.getJSON(url,function(data){
-    console.log("thumbnail" + data.lectureImage);
+    console.log(data);
     $.each(data, function(key, value){
       lec_data += '<div class="col-md-4">';
       lec_data += '<div class="card mb-4 box-shadow">';
-      lec_data += '<img id="limg" class="card-img-top" data-src="" src="http://i2.ytimg.com/vi/'+value.lectureImage+'/mqdefault.jpg"alt="Card image cap">';
+      lec_data += '<img id="limg" class="card-img-top" data-src="" src="'+value.lectureImage+'" alt="Card image cap">';
       lec_data += '<div id="lbody" class="card-body">';
       lec_data += '<h5 class="card-title">'+value.lectureDesc+'</h5>';
       lec_data += '<p class="card-text">'+value.lectureName+'</p>';
@@ -81,33 +79,8 @@ function getUrl(url){
     $('#row').append(lec_data);
   });
 }
-function about(){
-$("#back").hide();
-$("#front").hide();
-$("#dev").show();
-$("#contact").hide();
-}
-function course(){
-$("#back").hide();
-$("#front").show();
-$("#dev").hide();
-$("#contact").hide();
-}
-function home(){
-$("#back").hide();
-$("#front").show();
-$("#dev").hide();
-$("#contact").hide();
-}
-function contact(){
-$("#back").hide();
-$("#front").hide();
-$("#dev").hide();
-$("#contact").show();
-}
+
 $("document").ready(function(){
   $("#back").hide();
-  $("#dev").hide();
-  $("#contact").hide();
   getUrl("https://swlp-lecture-service.herokuapp.com/api/lectures/");
 });
