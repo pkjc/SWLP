@@ -20,7 +20,7 @@ function source(e){
   $.getJSON(NewUrl,function(data){
     console.log("inside getjson");
     lecture_data += '<div id="vid" class="embed-responsive embed-responsive-16by9 mt-3 mb-4">';
-    lecture_data += '<iframe width="560" height="315" src="'+data.taggedSections.VideoURL+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>></iframe>';
+    lecture_data += '<iframe width="560" height="315" src="https://youtu.be/'+data.taggedSections.VideoURL+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     lecture_data += '</div>';
     lecture_data += '<h5 id="name" style="font-weight:bold">'+data.taggedSections.VideoName+'</h5>';
     lecture_data += '<p id="desc" class="text-muted">'+data.lectureDesc+'</p>';
