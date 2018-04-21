@@ -53,7 +53,7 @@ function source(e){
       related_resources +=  '<small>'+value.mediaType+'</small>';
       related_resources +=  '</div>';
       related_resources +=  '<p class="mb-1">'+value.description+'</p>';
-      related_resources +=  '<a href="'+value.image+'">'+value.image+'</a>';
+      related_resources +=  '<a href="'+value.image+'" target="_blank">'+value.image+'</a>';
       related_resources +=  '</div>';
       $("#busy4").hide();
     });
