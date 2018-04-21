@@ -5,6 +5,9 @@ function source(e){
   $("#front").hide();
   $("#dev").hide();
   $("#contact").hide();
+  $("#busy2").show();
+  $("#busy3").show();
+  $("#busy4").show();
   var myVal = event.target.value;
   console.log('myVal' + myVal);
   //defining the variables
@@ -19,12 +22,15 @@ function source(e){
   //Making a AJAX getJSON function call with the new URL
   $.getJSON(NewUrl,function(data){
     console.log("inside getjson");
+    console.log(data);
     lecture_data += '<div id="vid" class="embed-responsive embed-responsive-16by9 mt-3 mb-4">';
-    lecture_data += '<iframe width="560" height="315" src="https://youtu.be/'+data.taggedSections.VideoURL+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    lecture_data += '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+data.taggedSections.videoURL+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     lecture_data += '</div>';
-    lecture_data += '<h5 id="name" style="font-weight:bold">'+data.taggedSections.VideoName+'</h5>';
+    lecture_data += '<h5 id="name" style="font-weight:bold">'+data.taggedSections.videoName+'</h5>';
     lecture_data += '<p id="desc" class="text-muted">'+data.lectureDesc+'</p>';
+    $("#busy2").hide();
     console.log(lecture_data);
+    console.log("VideoID" +data.taggedSections.videoURL);
     $('#lec_frame').append(lecture_data);
     // appending the acquired data to lecture material area in the thin client
     // Start of Tag call
@@ -33,6 +39,7 @@ function source(e){
       $.each(data.taggedSections.Tags[index].Appearances, function(index1, value1){
         console.log("VAL " + value1.startTime);
         vid_tag += '<li class="list-group-item"><a href="">'+value1.startTime+'-'+value1.endTime+'</a> #'+value.tagName+'</li>' ;
+        $("#busy3").hide();
       });
     });
 
@@ -48,6 +55,7 @@ function source(e){
       related_resources +=  '<p class="mb-1">'+value.description+'</p>';
       related_resources +=  '<small>'+value.image+'</small>';
       related_resources +=  '</a>';
+      $("#busy4").hide();
     });
     console.log(related_resources);
     // appending the acquired data to lecture material area in the thin client
@@ -67,14 +75,15 @@ function getUrl(url){
   url = url;
   // making the ajax call using getJSON
   $.getJSON(url,function(data){
+    console.log(data);
     // Looping through data from the service and getting lectureImage, lectureDescription, lectureName, IDs
     $.each(data, function(key, value){
       lec_data += '<div class="col-md-4">';
       lec_data += '<div class="card mb-4 box-shadow">';
-      lec_data += '<img id="limg" class="card-img-top" data-src="" src="http://i2.ytimg.com/vi/'+value.lectureImage+'/mqdefault.jpg"alt="Card image cap">';
+      lec_data += '<img id="limg" class="card-img-top" data-src="" src="http://i2.ytimg.com/vi/'+value.taggedSections.videoURL+'/mqdefault.jpg"alt="Card image cap">';
       lec_data += '<div id="lbody" class="card-body">';
       lec_data += '<h5 class="card-title">'+value.lectureDesc+'</h5>';
-      lec_data += '<p class="card-text">'+value.lectureName+'</p>';
+      lec_data += '<p class="card-text">'+value.taggedSections.videoName+'</p>';
       lec_data += '<div class="d-flex justify-content-between align-items-center">';
       lec_data += '<div class="btn-group">';
       lec_data += '<button type="button" id="'+value.id+'" onclick="source(this)" value="'+value.id+'"  class="lbtn btn btn-sm btn-outline-primary">Start Learning</button>';
@@ -85,40 +94,47 @@ function getUrl(url){
       lec_data += '</div>';
       lec_data += '</div>';
       lec_data += '</div>';
+      $("#busy").hide();
+      console.log("thumbnail"+ value.taggedSections.videoURL);
     });
     console.log(lec_data);
+
     // appending the acquired data to all course area in the thin client
     $('#row').append(lec_data);
   });
 }
 function about(){
-$("#back").hide();
-$("#front").hide();
-$("#dev").show();
-$("#contact").hide();
+  $("#back").hide();
+  $("#front").hide();
+  $("#dev").show();
+  $("#contact").hide();
 }
 function course(){
-$("#back").hide();
-$("#front").show();
-$("#dev").hide();
-$("#contact").hide();
+  $("#back").hide();
+  $("#front").show();
+  $("#dev").hide();
+  $("#contact").hide();
 }
 function home(){
-$("#back").hide();
-$("#front").show();
-$("#dev").hide();
-$("#contact").hide();
+  $("#back").hide();
+  $("#front").show();
+  $("#dev").hide();
+  $("#contact").hide();
 }
 function contact(){
-$("#back").hide();
-$("#front").hide();
-$("#dev").hide();
-$("#contact").show();
+  $("#back").hide();
+  $("#front").hide();
+  $("#dev").hide();
+  $("#contact").show();
 }
 $("document").ready(function(){
   $("#back").hide();
   $("#dev").hide();
   $("#contact").hide();
+  $("#busy").show();
+  $("#busy2").hide();
+  $("#busy3").hide();
+  $("#busy4").hide();
   // as the page loads go to getUrl function and carry forward the lecture service restapi url to make a ajax call
   getUrl("https://swlp-lecture-service.herokuapp.com/api/lectures/");
 });

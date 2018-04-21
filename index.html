@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700|Material+Icons">
   <!-- Bootstrap core CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
 
   <link href="css/style.css" rel="stylesheet">
@@ -53,6 +53,9 @@
     <div class="album py-4 mb-5">
       <section class="container col-sm-6">
         <div id="lec_frame">
+          <div id="busy2" class="text-center">
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+          </div>
           <!-- //Lecture material Display area for lecture video,lecture Name,lecture Description -->
         </div>
         <nav>
@@ -71,14 +74,20 @@
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade" id="nav-tagged-sections" role="tabpanel"
           aria-labelledby="nav-tagged-sections-tab-tab">
+          <div id="busy3" class="text-center">
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+          </div>
           <ul id="vtag" class="list-group list-group-flush">
             <!-- //Display area for video Tags -->
           </ul>
         </div>
         <div class="tab-pane fade show active" id="nav-related-resources" role="tabpanel"
         aria-labelledby="nav-related-resources-tab">
+        <div id="busy4" class="text-center">
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+        </div>
         <div id="related_rsrc" class="list-group list-group-flush">
-          <!-- Display area for video Tags -->
+          <!-- Display area for Related Resources -->
         </div>
       </div>
       <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
@@ -115,9 +124,12 @@
     </section>
     <div class="album py-5">
       <div class="container">
-        <h4 class="mb-4">Featured Courses</h4>
+        <h4 class="mb-4">Featured Courses</h4><br>
+        <div id="busy" class="text-center">
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+        </div>
         <div class="row" id="row">
-<!-- Display area for all courses -->
+          <!-- Display area for all courses -->
         </div>
       </div>
     </div>
