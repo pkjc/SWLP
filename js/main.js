@@ -1,4 +1,5 @@
 function source(e){
+  // we are calling an eventhandler to handle the videos by IDs associated with them
   console.log("inside source " + e);
   $("#back").show();
   $("#front").hide();
@@ -6,13 +7,16 @@ function source(e){
   $("#contact").hide();
   var myVal = event.target.value;
   console.log('myVal' + myVal);
+  //defining the variables
   var lecture_data = '';
   var vid_tag = '';
   var related_resources = '';
   console.log('myVal 2 ' + myVal);
   url = "https://swlp-lecture-service.herokuapp.com/api/lectures/";
   var NewUrl = url + myVal;
+  //calling the lectures service restapi by adding the ID retrived from the eventhandler to its url and calling data particular to that ID
   console.log('NewUrl ' + NewUrl);
+  //Making a AJAX getJSON function call with the new URL
   $.getJSON(NewUrl,function(data){
     console.log("inside getjson");
     lecture_data += '<div id="vid" class="embed-responsive embed-responsive-16by9 mt-3 mb-4">';
@@ -22,7 +26,7 @@ function source(e){
     lecture_data += '<p id="desc" class="text-muted">'+data.lectureDesc+'</p>';
     console.log(lecture_data);
     $('#lec_frame').append(lecture_data);
-    console.log("THIS " + data.RelatedResources.media[0]);
+    // appending the acquired data to lecture material area in the thin client
     // Start of Tag call
     $.each(data.taggedSections.Tags, function(index, value){
       console.log("VAL " + value.tagName);
@@ -46,6 +50,7 @@ function source(e){
       related_resources +=  '</a>';
     });
     console.log(related_resources);
+    // appending the acquired data to lecture material area in the thin client
     $('#related_rsrc').append(related_resources);
     $('#vtag').append(vid_tag);
   });
@@ -54,12 +59,15 @@ function source(e){
 
 
 function getUrl(url){
+  //this function helps in dynamically calling all the course and asign appropriate IDs to buttons. These IDs are carry forwarded using source(this)
+  // defining the variables
   var lec_d = '';
   var lec_n = '';
   var lec_data = '';
   url = url;
+  // making the ajax call using getJSON
   $.getJSON(url,function(data){
-    console.log("thumbnail" + data.lectureImage);
+    // Looping through data from the service and getting lectureImage, lectureDescription, lectureName, IDs
     $.each(data, function(key, value){
       lec_data += '<div class="col-md-4">';
       lec_data += '<div class="card mb-4 box-shadow">';
@@ -70,6 +78,7 @@ function getUrl(url){
       lec_data += '<div class="d-flex justify-content-between align-items-center">';
       lec_data += '<div class="btn-group">';
       lec_data += '<button type="button" id="'+value.id+'" onclick="source(this)" value="'+value.id+'"  class="lbtn btn btn-sm btn-outline-primary">Start Learning</button>';
+      // When the button is clicked its going to source function which displays lectures materials such as lectureVideo,name and description, tags, RelatedResources
       lec_data += '<button type="button" class="btn btn-sm btn-outline-primary">Bookmark</button>';
       lec_data += '</div>';
       lec_data += '</div>';
@@ -78,6 +87,7 @@ function getUrl(url){
       lec_data += '</div>';
     });
     console.log(lec_data);
+    // appending the acquired data to all course area in the thin client
     $('#row').append(lec_data);
   });
 }
@@ -109,5 +119,6 @@ $("document").ready(function(){
   $("#back").hide();
   $("#dev").hide();
   $("#contact").hide();
+  // as the page loads go to getUrl function and carry forward the lecture service restapi url to make a ajax call
   getUrl("https://swlp-lecture-service.herokuapp.com/api/lectures/");
 });
